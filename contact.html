@@ -38,6 +38,24 @@
 
   gtag('config', 'AW-17117287566');
 </script>
+
+ <!-- Fragmento de conversión -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17117287566/P-xZCIWH5c0aEI6plOI_',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+    });
+    return false;
+  }
+  </script>
 </head>
 
 <body class="blog-details-page">
@@ -154,12 +172,16 @@
                 <!-- Opcional: redireccionar a una página de "gracias" tras el envío -->
                 <input type="hidden" name="_next" value="https://tusitio.com/thanks?language=es">
           
-                <div class="col-12 text-center">
-                  <div class="loading" style="display:none;">Loading</div>
-                  <div class="error-message" style="display:none;"></div>
-                  <div class="sent-message" style="display:none;">Tu mensaje ha sido enviado. ¡Gracias!</div>
-                  <button type="submit">Enviar Mensaje</button>
-                </div>
+<div class="col-12 text-center">
+  <div class="loading" style="display:none;">Loading</div>
+  <div class="error-message" style="display:none;"></div>
+  <div class="sent-message" style="display:none;">Tu mensaje ha sido enviado. ¡Gracias!</div>
+  <button type="submit"
+          onclick="gtag_report_conversion();">
+    Enviar Mensaje
+  </button>
+</div>
+
           
               </div>
             </form>
